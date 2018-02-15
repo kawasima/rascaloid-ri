@@ -1,0 +1,4 @@
+{:paths ["resources"]
+ :deps
+ {net.unit8.darzana/darzana {:mvn/version "1.0.0-SNAPSHOT"}
+  integrant/repl {:mvn/version "0.3.0"}}}
