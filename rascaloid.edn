@@ -1,9 +1,11 @@
 {:duct.core/environment :development
 
- :duct.server.http/jetty {:port 3003}
+ :duct.server.http/jetty {:port #duct/env ["PORT" Int :or 3003]}
  :duct.core/include ["darzana/config"]
  :darzana.api-spec/swagger {:swagger-path "swagger"}
  :darzana.template/freemarker {:template-path "ftl"}
  :darzana/runtime {:routes-path "scripts"
-                   :application-scope {"X-Bouncr-Credential" "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJ1c2VyMSIsIm5hbWUiOiJUZXN0IFVzZXIxIiwicGVybWlzc2lvbnMiOlsicHJvamVjdDpyZWFkIiwicHJvamVjdDpjcmVhdGUiLCJwcm9qZWN0OnVwZGF0ZSIsInByb2plY3Q6ZGVsZXRlIl19.jlDVRGqFQ6_Kt4Agh5fN2_KVamXwM680sEjOKG0ku5s"}}
+                   :application-scope {"X-Bouncr-Credential" #duct/env ["BOUNCR_CREDENTIAL" Str :or "eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJzdWIiOiJ1c2VyMSIsIm5hbWUiOiJUZXN0IFVzZXIxIiwicGVybWlzc2lvbnMiOlsicHJvamVjdDpyZWFkIiwicHJvamVjdDpjcmVhdGUiLCJwcm9qZWN0OnVwZGF0ZSIsInByb2plY3Q6ZGVsZXRlIl19.jlDVRGqFQ6_Kt4Agh5fN2_KVamXwM680sEjOKG0ku5s"]
+                                       "rascaloid_port" #duct/env ["RASCALOID_PORT" Int :or 3000]
+                                       "rascaloid_host" #duct/env ["RASCALOID_HOST" Str :or "localhost"]}}
  :darzana.http-client/okhttp {}}

@@ -5,7 +5,12 @@ info:
   license: EPL-2.0
   version: 0.1.0
 servers:
-  - url: 'http://localhost:3000'
+  - url: http://{rascaloid_host}:{rascaloid_port}
+    variables:
+      rascaloid_host:
+        default: localhost
+      rascaloid_port:
+        default: 3000
     description: Development
 tags:
   - name: project
